@@ -9,27 +9,32 @@ on:
 
 jobs:
   release:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       pages: write
       id-token: write
-    runs-on: ubuntu-latest
+
     steps:
+      # Checkout the repo
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      # Configure Git user
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
+      # Install Helm
       - name: Install Helm
         uses: azure/setup-helm@v4
         with:
           version: v3.12.1
 
+      # Run chart-releaser to detect changes and package charts
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
         env:
@@ -37,3 +42,21 @@ jobs:
         with:
           charts_dir: charts
           skip_existing: true
+
+      # Generate a central index.yaml for all charts
+      - name: Generate index.yaml
+        run: |
+          mkdir -p .cr-release-packages
+          # Move all packaged charts from chart-releaser to .cr-release-packages
+          mv .cr-release-packages/* .cr-release-packages/ 2>/dev/null || true
+          helm repo index .cr-release-packages --url https://osnatashush.github.io/helm-charts
+
+      # Upload packaged charts + index.yaml to GitHub Pages
+      - name: Upload charts to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .cr-release-packages
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
