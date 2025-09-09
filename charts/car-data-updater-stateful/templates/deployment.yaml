@@ -63,8 +63,8 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
           {{- end }}
+          {{- if .Values.env }}
           env:
-            # env רגילים מתוך values.yaml
             {{- range $key, $value := .Values.env }}
             - name: {{ $key }}
               value: {{ $value | quote }}
@@ -79,6 +79,7 @@ spec:
                   key: {{ .secret }}
             {{- end }}
             {{- end }}
+          {{- end }}
           {{- if and .Values.secrets.enabled .Values.secrets.toEnvironments }}
           envFrom:
             - secretRef:
