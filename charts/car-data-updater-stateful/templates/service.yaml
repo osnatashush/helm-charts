@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: { { include "car-data-updater-stateful.fullname" . } }
-  labels: { { - include "car-data-updater-stateful.labels" . | nindent 4 } }
+  name: {{ include "car-data-updater-stateful.fullname" . }}
+  labels: {{- include "car-data-updater-stateful.labels" . | nindent 4 }}
 spec:
-  type: { { .Values.service.type } }
+  type: {{ .Values.service.type }}
   ports:
-    - port: { { .Values.service.port } }
-      targetPort: { { .Values.service.targetPort } }
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
       name: http
   selector:
-    { { - include "car-data-updater-stateful.selectorLabels" . | nindent 4 } }
+    {{- include "car-data-updater-stateful.selectorLabels" . | nindent 4 }}
