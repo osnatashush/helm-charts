@@ -69,6 +69,21 @@ spec:
             - name: {{ $key }}
               value: {{ $value | quote }}
             {{- end }}
+            # env מ-Secrets (toEnv)
+            {{- if .Values.secrets.enabled }}
+            {{- range .Values.secrets.toEnv }}
+            - name: {{ .env }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "car-data-updater-stateful.fullname" $ }}-secrets
+                  key: {{ .secret }}
+            {{- end }}
+            {{- end }}
+          {{- end }}
+          {{- if and .Values.secrets.enabled .Values.secrets.toEnvironments }}
+          envFrom:
+            - secretRef:
+                name: {{ include "car-data-updater-stateful.fullname" $ }}-secrets-env
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
