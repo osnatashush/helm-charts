@@ -70,13 +70,6 @@ spec:
               value: {{ $value | quote }}
             {{- end }}
           {{- end }}
-          {{- if and .Values.secrets.enabled .Values.secrets.toEnvironments }}
-          envFrom:
-            {{- range .Values.secrets.toEnvironments }}
-            - secretRef:
-                name: {{ .name }}
-            {{- end }}
-          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
