@@ -1,0 +1,20 @@
+apiVersion: v2
+name: car-data-updater-stateful
+description: A Helm chart for car data updater stateful application
+maintainers:
+  - name: osnat ashush
+    email: osnat529@gmail.com
+    url: osnatashush.github.io
+
+type: application
+version: 0.0.2
+appVersion: "1.0.0"
+
+keywords:
+  - car
+  - data
+  - stateful
+
+home: https://github.com/osnatashush/helm-charts
+sources:
+  - https://github.com/osnatashush/helm-charts

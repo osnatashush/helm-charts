@@ -1,0 +1,56 @@
+# Default values for car-data-updater-stateful
+appName: "car-data-updater"
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  containerPort: 80
+  tag: "latest"
+  args: []
+
+secrets:
+  enabled: false
+  secretStoreRef:
+    name: aws-secret-store
+    kind: ClusterSecretStore
+  refreshInterval: 15m
+  secretsDir: /etc/secrets
+  toEnv: []
+  toFiles: []
+  toEnvironments: []
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1000Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+env: {}
+
+healthCheck:
+  enabled: false
+
+# StatefulSet specific
+volumeClaimTemplates: []
+updateStrategy:
+  type: RollingUpdate
