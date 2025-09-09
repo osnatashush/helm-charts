@@ -3,6 +3,27 @@ entries:
   car-data-updater-stateful:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-09-09T20:11:27.475361418Z"
+    description: A Helm chart for car data updater stateful application
+    digest: e330778b2c7dce68057b3f235378af1ad21ba7222104d46a12ef311896e5fbcc
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - car
+    - data
+    - stateful
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: osnatashush.github.io
+    name: car-data-updater-stateful
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/car-data-updater-stateful-0.0.7/car-data-updater-stateful-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2025-09-09T20:07:32.494305173Z"
     description: A Helm chart for car data updater stateful application
     digest: d955adbcb8b55e9d7cd1ca7ad198dade7ff41af499dbc50771788ee169197122
@@ -43,4 +64,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/car-data-updater-stateful-0.0.5/car-data-updater-stateful-0.0.5.tgz
     version: 0.0.5
-generated: "2025-09-09T20:07:32.494319219Z"
+generated: "2025-09-09T20:11:27.475379502Z"
