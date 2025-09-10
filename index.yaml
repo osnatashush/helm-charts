@@ -190,6 +190,26 @@ entries:
     version: 0.0.5
   geo-routes-api-app:
   - apiVersion: v2
+    created: "2025-09-10T14:07:58.192534111Z"
+    description: A Helm chart for geo-routes-api application
+    digest: 46fddc3282a636a43b8a3ce628804e8544c77451f47f14d918696274e8587dde
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - geo-routes-api
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: geo-routes-api-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/geo-routes-api-app-0.0.2/geo-routes-api-app-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     created: "2025-09-10T13:45:02.107757138Z"
     description: A Helm chart for geo-routes-api application
     digest: a5badf2361e1065e9304389a7824eca86e467bb4f4d259a2bda06f3877eedf17
@@ -314,4 +334,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/threat-patrol-app-0.0.1/threat-patrol-app-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-10T13:45:02.107786493Z"
+generated: "2025-09-10T14:07:58.192566081Z"
