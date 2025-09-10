@@ -78,7 +78,8 @@ service:
   type: ClusterIP
   port: 80
   targetPort: 80
-
+  nlb:
+    internal: false
 ingress:
   enabled: false
   className: ""
