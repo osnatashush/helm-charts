@@ -16,7 +16,7 @@ image:
   tag: "4c06e9f695bf37217497497010674a5a2eacd644cb"
 
 secrets:
-  enabled: true
+  enabled: false
   secretStoreRef:
     name: aws-secret-store
     kind: ClusterSecretStore
@@ -70,7 +70,7 @@ env:
   DB_ENV: develop
   DB_CREDS_ID: api-server/develop/docdb-rw-credentials
   PROJECT_SLUG: api-server
-  PORT: '8080'
+  PORT: "8080"
   NODE_ENV: develop
   S3_BUCKET_NAME: dev-bucket-eks-shared
   AWS_REGION: eu-west-1
