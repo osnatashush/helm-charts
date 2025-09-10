@@ -5,9 +5,10 @@ maintainers:
   - name: osnat ashush
     email: osnat529@gmail.com
     url: osnatashush.github.io
+    github: osnatashush
 
 type: application
-version: 0.0.7
+version: 0.0.10
 appVersion: "1.0.0"
 
 keywords:
