@@ -272,4 +272,25 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/ride-viewer-app-0.0.1/ride-viewer-app-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-10T13:01:44.938248373Z"
+  threat-patrol-app:
+  - apiVersion: v2
+    created: "2025-09-10T13:15:51.105258578Z"
+    description: A Helm chart for threat-patrol application
+    digest: 942edcba8dd8e66105085ddb49b6a66e23d46ec8ffe78c7263e49ffa77e6351f
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - threat-patrol
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: threat-patrol-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/threat-patrol-app-0.0.1/threat-patrol-app-0.0.1.tgz
+    version: 0.0.1
+generated: "2025-09-10T13:15:51.105286588Z"
