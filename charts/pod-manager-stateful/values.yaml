@@ -66,3 +66,8 @@ serviceAccount:
   create: false
   annotations: {}
   name: ""
+
+# RBAC
+rbac:
+  create: false
+  additionalRules: []
