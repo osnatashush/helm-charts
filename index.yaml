@@ -233,6 +233,26 @@ entries:
     version: 0.0.1
   ride-viewer-app:
   - apiVersion: v2
+    created: "2025-09-10T13:01:44.938217475Z"
+    description: A Helm chart for ride-viewer application
+    digest: 651aa1213862624a5266854269600154917e6bfeb708f4c2d43375c33008b741
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - ride-viewer
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: ride-viewer-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/ride-viewer-app-0.0.2/ride-viewer-app-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     created: "2025-09-10T12:08:03.142858516Z"
     description: A Helm chart for ride-viewer application
     digest: e9c3eebc2f06b3154ae31ddb346e020f4f10e7fff172f455fbe7b25784ed1496
@@ -252,4 +272,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/ride-viewer-app-0.0.1/ride-viewer-app-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-10T12:08:03.14288747Z"
+generated: "2025-09-10T13:01:44.938248373Z"
