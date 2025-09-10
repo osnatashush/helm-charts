@@ -190,6 +190,26 @@ entries:
     version: 0.0.5
   geo-routes-api-app:
   - apiVersion: v2
+    created: "2025-09-10T14:33:18.703523992Z"
+    description: A Helm chart for geo-routes-api application
+    digest: a581ade7ac52bd2503a3cc5f8b56c90bba109f06e8a4cfb8e4aa758ff1f9fb71
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - geo-routes-api
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: geo-routes-api-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/geo-routes-api-app-0.0.3/geo-routes-api-app-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
     created: "2025-09-10T14:07:58.192534111Z"
     description: A Helm chart for geo-routes-api application
     digest: 46fddc3282a636a43b8a3ce628804e8544c77451f47f14d918696274e8587dde
@@ -228,6 +248,27 @@ entries:
     type: application
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/geo-routes-api-app-0.0.1/geo-routes-api-app-0.0.1.tgz
+    version: 0.0.1
+  notification-maker-app:
+  - apiVersion: v2
+    created: "2025-09-10T14:33:18.939379702Z"
+    description: A Helm chart for notification-maker application
+    digest: 582495aab13b8535365849d465285df3f138e6cdd9307e42297d2903b5b24843
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - notification-maker
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: notification-maker-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/notification-maker-app-0.0.1/notification-maker-app-0.0.1.tgz
     version: 0.0.1
   pod-manager-stateful:
   - apiVersion: v2
@@ -334,4 +375,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/threat-patrol-app-0.0.1/threat-patrol-app-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-10T14:07:58.192566081Z"
+generated: "2025-09-10T14:33:18.93940539Z"
