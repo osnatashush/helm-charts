@@ -1,6 +1,6 @@
 apiVersion: v2
-name: geo-routes-api-app
-description: A Helm chart for geo-routes-api application
+name: notification-maker-app
+description: A Helm chart for notification-maker application
 maintainers:
   - name: osnat ashush
     email: osnat529@gmail.com
@@ -19,7 +19,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.3
+version: 0.0.1
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are expected to
@@ -27,7 +27,7 @@ version: 0.0.3
 # appVersion: "1.0.0"
 
 keywords:
-  - geo-routes-api
+  - notification-maker
   - web
   - app
 
