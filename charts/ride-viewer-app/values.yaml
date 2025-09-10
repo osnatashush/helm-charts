@@ -1,0 +1,96 @@
+# Default values for app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Application identifier - used to distinguish between different apps
+appName: ""
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  containerPort: 80
+  args: []
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+secrets:
+  enabled: false
+  secretStoreRef:
+    name: aws-secret-store
+    kind: ClusterSecretStore
+  refreshInterval: 15m
+  secretsDir: /etc/secrets
+  toEnv: []
+  # - secret: secret-name
+  #   env: ENV_VAR_NAME
+  toFiles: []
+  # - name: secret-name
+  toEnvironments: []
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env: {}
+
+healthCheck:
+  enabled: false
+  healthCheckType: tcp
+  healthCheckPort: 8080
+  initialDelaySeconds: 10
+  timeoutSeconds: 1
+  periodSeconds: 5
+  successThreshold: 1
+  failureThreshold: 3
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
