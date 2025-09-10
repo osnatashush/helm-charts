@@ -188,6 +188,27 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/car-data-updater-stateful-0.0.5/car-data-updater-stateful-0.0.5.tgz
     version: 0.0.5
+  geo-routes-api-app:
+  - apiVersion: v2
+    created: "2025-09-10T13:45:02.107757138Z"
+    description: A Helm chart for geo-routes-api application
+    digest: a5badf2361e1065e9304389a7824eca86e467bb4f4d259a2bda06f3877eedf17
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - geo-routes-api
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: geo-routes-api-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/geo-routes-api-app-0.0.1/geo-routes-api-app-0.0.1.tgz
+    version: 0.0.1
   pod-manager-stateful:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -293,4 +314,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/threat-patrol-app-0.0.1/threat-patrol-app-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-10T13:15:51.105286588Z"
+generated: "2025-09-10T13:45:02.107786493Z"
