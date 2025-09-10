@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "pod-manager-stateful.fullname" . }}
+  labels:
+    {{- include "pod-manager-stateful.labels" . | nindent 4 }}
+    {{- if .Values.appName }}
+    app: {{ .Values.appName }}
+    {{- end }}
+spec:
+  serviceName: {{ include "pod-manager-stateful.fullname" . }}
+  replicas: {{ .Values.replicaCount }}
+  {{- if .Values.updateStrategy }}
+  updateStrategy:
+    {{- toYaml .Values.updateStrategy | nindent 4 }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "pod-manager-stateful.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "pod-manager-stateful.selectorLabels" . | nindent 8 }}
+        {{- if .Values.appName }}
+        app: {{ .Values.appName }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "pod-manager-stateful.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          {{- if .Values.image.args }}
+          args:
+            {{- toYaml .Values.image.args | nindent 12 }}
+          {{- end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.image.containerPort }}
+              protocol: TCP
+          {{- if .Values.healthCheck.enabled }}
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          {{- end }}
+          {{- if .Values.env }}
+          env:
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
+            # env from Secrets (toEnv)
+            {{- if .Values.secrets.enabled }}
+            {{- range .Values.secrets.toEnv }}
+            - name: {{ .env }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "pod-manager-stateful.fullname" $ }}-secrets
+                  key: {{ .secret }}
+            {{- end }}
+            {{- end }}
+          {{- end }}
+          {{- if and .Values.secrets.enabled .Values.secrets.toEnvironments }}
+          envFrom:
+            - secretRef:
+                name: {{ include "pod-manager-stateful.fullname" $ }}-secrets-env
+          {{- end }}
+          {{- if .Values.volumeMounts }}
+          volumeMounts:
+            {{- toYaml .Values.volumeMounts | nindent 12 }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.volumes }}
+      volumes:
+        {{- toYaml .Values.volumes | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- if .Values.volumeClaimTemplates }}
+  volumeClaimTemplates:
+    {{- toYaml .Values.volumeClaimTemplates | nindent 4 }}
+  {{- end }}

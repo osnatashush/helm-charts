@@ -1,0 +1,68 @@
+# Default values for pod-manager-stateful
+appName: "pod-manager"
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  containerPort: 80
+  tag: "latest"
+  args: []
+
+secrets:
+  enabled: false
+  secretStoreRef:
+    name: aws-secret-store
+    kind: ClusterSecretStore
+  refreshInterval: 15m
+  secretsDir: /etc/secrets
+  toEnv: []
+  toFiles: []
+  toEnvironments: []
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1Gi
+  requests:
+    cpu: 250m
+    memory: 300Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+env: {}
+
+healthCheck:
+  enabled: false
+
+# StatefulSet specific
+volumeClaimTemplates: []
+updateStrategy:
+  type: RollingUpdate
+
+# Volumes configuration
+volumes: []
+
+# Volume mounts configuration
+volumeMounts: []
+
+# Service Account
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
