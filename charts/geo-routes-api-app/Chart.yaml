@@ -1,6 +1,6 @@
 apiVersion: v2
-name: threat-patrol-app
-description: A Helm chart for threat-patrol application
+name: geo-routes-api-app
+description: A Helm chart for geo-routes-api application
 maintainers:
   - name: osnat ashush
     email: osnat529@gmail.com
@@ -27,7 +27,7 @@ version: 0.0.1
 # appVersion: "1.0.0"
 
 keywords:
-  - threat-patrol
+  - geo-routes-api
   - web
   - app
 

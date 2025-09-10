@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "threat-patrol-app.fullname" . }}-internal
+  name: {{ include "geo-routes-api-app.fullname" . }}-internal
   labels:
-    {{- include "threat-patrol-app.labels" . | nindent 4 }}
+    {{- include "geo-routes-api-app.labels" . | nindent 4 }}
   annotations:
     {{- if .Values.service.nlb.internal }}
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
@@ -21,4 +21,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "threat-patrol-app.selectorLabels" . | nindent 4 }}
+    {{- include "geo-routes-api-app.selectorLabels" . | nindent 4 }}

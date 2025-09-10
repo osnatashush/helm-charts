@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "threat-patrol-app.fullname" . }}
+  name: {{ include "geo-routes-api-app.fullname" . }}
   labels:
-    {{- include "threat-patrol-app.labels" . | nindent 4 }}
+    {{- include "geo-routes-api-app.labels" . | nindent 4 }}
     {{- if .Values.appName }}
     app: {{ .Values.appName }}
     {{- end }}
@@ -11,7 +11,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "threat-patrol-app.selectorLabels" . | nindent 6 }}
+      {{- include "geo-routes-api-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,7 +19,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "threat-patrol-app.selectorLabels" . | nindent 8 }}
+        {{- include "geo-routes-api-app.selectorLabels" . | nindent 8 }}
         {{- if .Values.appName }}
         app: {{ .Values.appName }}
         {{- end }}
@@ -28,7 +28,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "threat-patrol-app.serviceAccountName" . }}
+      serviceAccountName: {{ include "geo-routes-api-app.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       restartPolicy: {{ .Values.restartPolicy | default "Always" }}
@@ -83,7 +83,7 @@ spec:
           {{- if and .Values.secrets.enabled .Values.secrets.toEnvironments }}
           envFrom:
             - secretRef:
-                name: {{ include "threat-patrol-app.fullname" $ }}-secrets-env
+                name: {{ include "geo-routes-api-app.fullname" $ }}-secrets-env
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

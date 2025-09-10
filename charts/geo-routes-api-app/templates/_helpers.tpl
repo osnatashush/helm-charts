@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "threat-patrol-app.name" -}}
+{{- define "geo-routes-api-app.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "threat-patrol-app.fullname" -}}
+{{- define "geo-routes-api-app.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "threat-patrol-app.chart" -}}
+{{- define "geo-routes-api-app.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "threat-patrol-app.labels" -}}
-helm.sh/chart: {{ include "threat-patrol-app.chart" . }}
-{{ include "threat-patrol-app.selectorLabels" . }}
+{{- define "geo-routes-api-app.labels" -}}
+helm.sh/chart: {{ include "geo-routes-api-app.chart" . }}
+{{ include "geo-routes-api-app.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "threat-patrol-app.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "threat-patrol-app.name" . }}
+{{- define "geo-routes-api-app.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "geo-routes-api-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "threat-patrol-app.serviceAccountName" -}}
+{{- define "geo-routes-api-app.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "threat-patrol-app.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "geo-routes-api-app.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
