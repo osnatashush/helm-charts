@@ -81,10 +81,8 @@ spec:
           {{- end }}
           {{- if and .Values.secrets.enabled .Values.secrets.toEnvironments }}
           envFrom:
-            {{- range .Values.secrets.toEnvironments }}
             - secretRef:
-                name: {{ .name }}
-            {{- end }}
+                name: {{ include "api-server-app.fullname" $ }}-secrets-env
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
