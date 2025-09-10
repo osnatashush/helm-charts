@@ -1,5 +1,26 @@
 apiVersion: v1
 entries:
+  api-server-app:
+  - apiVersion: v2
+    created: "2025-09-10T07:47:44.652181093Z"
+    description: A Helm chart for Kubernetes
+    digest: 57e0add2a349a20d5f24ab96922d2dc47749f9a6f547f967da8156094a5dfafb
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - api
+    - server
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: api-server-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/api-server-app-0.0.1/api-server-app-0.0.1.tgz
+    version: 0.0.1
   car-data-updater-stateful:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -127,4 +148,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/car-data-updater-stateful-0.0.5/car-data-updater-stateful-0.0.5.tgz
     version: 0.0.5
-generated: "2025-09-09T20:45:03.824035588Z"
+generated: "2025-09-10T07:47:44.855792407Z"
