@@ -191,6 +191,27 @@ entries:
   pod-manager-stateful:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-09-10T08:45:48.769308922Z"
+    description: A Helm chart for pod-manager StatefulSet
+    digest: 41dc77114a19ac48afdce2fa2898a85aa99be2d44007b9c62ea6aeb3117281a2
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - pod-manager
+    - statefulset
+    - kubernetes
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: pod-manager-stateful
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/pod-manager-stateful-0.0.2/pod-manager-stateful-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2025-09-10T08:38:59.242698853Z"
     description: A Helm chart for pod-manager StatefulSet
     digest: aabb28befd1b2349ab8ada4a8eb7b041d0a8c8730dfdc7d7e78ce6eaf911eff8
@@ -210,4 +231,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/pod-manager-stateful-0.0.1/pod-manager-stateful-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-10T08:38:59.242716486Z"
+generated: "2025-09-10T08:45:48.769335431Z"
