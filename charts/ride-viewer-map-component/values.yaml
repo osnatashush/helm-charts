@@ -1,0 +1,50 @@
+# Default values for ride-viewer-map-component
+
+# Optional application identifier used for additional 'app' label
+appName: ""
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+  containerPort: 8080
+  args: []
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+securityContext: {}
+
+resources: {}
+
+nodeSelector: {}
+affinity: {}
+tolerations: []
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+  annotations: {}
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  tls: []
+  # - hosts:
+  #     - example.com
+  #   secretName: tls-secret
+  hosts: []
+  # - host: example.com
+  #   paths:
+  #     - path: /
+  #       pathType: Prefix
+  backendServiceName: ""

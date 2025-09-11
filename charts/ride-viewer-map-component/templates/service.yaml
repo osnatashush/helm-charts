@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ default (printf "%s-internal" (include "ride-viewer-map-component.fullname" .)) .Values.service.nameOverride }}
+  labels:
+    {{- include "ride-viewer-map-component.labels" . | nindent 4 }}
+    {{- if .Values.appName }}
+    app: {{ .Values.appName }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "ride-viewer-map-component.selectorLabels" . | nindent 4 }}
+    {{- with .Values.podLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
