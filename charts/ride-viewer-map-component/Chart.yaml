@@ -1,5 +1,5 @@
 apiVersion: v2
-name: ride-viewer-map-component
+name: ride-viewer-map-component-app
 description: Ride Viewer Map Component web app
 
 type: application
