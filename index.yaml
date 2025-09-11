@@ -488,6 +488,17 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/ride-viewer-app-0.0.1/ride-viewer-app-0.0.1.tgz
     version: 0.0.1
+  ride-viewer-map-component:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-09-11T10:18:26.145791061Z"
+    description: Ride Viewer Map Component web app
+    digest: 3743f03e0b979ee42bee665bfe75051ac827eb863a234548e1ad3d7b4968cb2e
+    name: ride-viewer-map-component
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/ride-viewer-map-component-0.0.1/ride-viewer-map-component-0.0.1.tgz
+    version: 0.0.1
   threat-patrol-app:
   - apiVersion: v2
     created: "2025-09-10T13:15:51.105258578Z"
@@ -509,4 +520,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/threat-patrol-app-0.0.1/threat-patrol-app-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-11T09:05:33.080395923Z"
+generated: "2025-09-11T10:18:26.145841535Z"
