@@ -2,6 +2,26 @@ apiVersion: v1
 entries:
   api-server-app:
   - apiVersion: v2
+    created: "2025-09-11T09:05:32.172007324Z"
+    description: A Helm chart for Kubernetes
+    digest: 2160ed73fa9beacb2e08da083abca09bd5eed8bade2d329bc3305e7c329efdc2
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - api
+    - server
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: api-server-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/api-server-app-0.0.5/api-server-app-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
     created: "2025-09-10T08:04:39.557161548Z"
     description: A Helm chart for Kubernetes
     digest: 51814087757cf81160fc4e91c993af1990ab27e60bf7dfe23d92ea54a22ab250
@@ -62,6 +82,27 @@ entries:
     - https://github.com/osnatashush/helm-charts/releases/download/api-server-app-0.0.1/api-server-app-0.0.1.tgz
     version: 0.0.1
   car-data-updater-stateful:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-09-11T09:05:32.325657831Z"
+    description: A Helm chart for car data updater stateful application
+    digest: b6fd59fe80d2280708a05cd34888423e43c25af959f5cd359a5013cc8a9e354c
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - car
+    - data
+    - stateful
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: osnatashush.github.io
+    name: car-data-updater-stateful
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/car-data-updater-stateful-0.0.11/car-data-updater-stateful-0.0.11.tgz
+    version: 0.0.11
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2025-09-09T20:45:03.82399958Z"
@@ -188,7 +229,39 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/car-data-updater-stateful-0.0.5/car-data-updater-stateful-0.0.5.tgz
     version: 0.0.5
+  data-mocker-job:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-09-11T09:05:32.480480478Z"
+    description: Generic Helm chart for a Kubernetes Job with multiple containers
+      and services.
+    digest: 8464902d098ff1db8ea9f6fa3eed26174895f7388d96b6eeb57866e45fb67a1d
+    name: data-mocker-job
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/data-mocker-job-0.0.2/data-mocker-job-0.0.2.tgz
+    version: 0.0.2
   geo-routes-api-app:
+  - apiVersion: v2
+    created: "2025-09-11T09:05:32.655269265Z"
+    description: A Helm chart for geo-routes-api application
+    digest: d5883d68f70f486665081673d98f3e4b97ba98796018bfe7f96b5c46ed32e963
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - geo-routes-api
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: geo-routes-api-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/geo-routes-api-app-0.0.4/geo-routes-api-app-0.0.4.tgz
+    version: 0.0.4
   - apiVersion: v2
     created: "2025-09-10T14:33:18.703523992Z"
     description: A Helm chart for geo-routes-api application
@@ -251,6 +324,26 @@ entries:
     version: 0.0.1
   notification-maker-app:
   - apiVersion: v2
+    created: "2025-09-11T09:05:32.845041904Z"
+    description: A Helm chart for notification-maker application
+    digest: cb634dc98dd881086c1f85987dc23f7def68fcc91fa45e7deaa2437555238cfb
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - notification-maker
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: notification-maker-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/notification-maker-app-0.0.2/notification-maker-app-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     created: "2025-09-10T14:33:18.939379702Z"
     description: A Helm chart for notification-maker application
     digest: 582495aab13b8535365849d465285df3f138e6cdd9307e42297d2903b5b24843
@@ -271,6 +364,27 @@ entries:
     - https://github.com/osnatashush/helm-charts/releases/download/notification-maker-app-0.0.1/notification-maker-app-0.0.1.tgz
     version: 0.0.1
   pod-manager-stateful:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-09-11T09:05:32.961063471Z"
+    description: A Helm chart for pod-manager StatefulSet
+    digest: a26c5d805c3c157036803e98e710ef7cf352d541ec3c97a9b895acb7f6118030
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - pod-manager
+    - statefulset
+    - kubernetes
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: pod-manager-stateful
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/pod-manager-stateful-0.0.3/pod-manager-stateful-0.0.3.tgz
+    version: 0.0.3
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2025-09-10T08:45:48.769308922Z"
@@ -314,6 +428,26 @@ entries:
     - https://github.com/osnatashush/helm-charts/releases/download/pod-manager-stateful-0.0.1/pod-manager-stateful-0.0.1.tgz
     version: 0.0.1
   ride-viewer-app:
+  - apiVersion: v2
+    created: "2025-09-11T09:05:33.080291498Z"
+    description: A Helm chart for ride-viewer application
+    digest: bd8f8742cddef8a8bcfb09a8b60c228f1f80241db262d6ae5d34dde9e8728540
+    home: https://github.com/osnatashush/helm-charts
+    keywords:
+    - ride-viewer
+    - web
+    - app
+    maintainers:
+    - email: osnat529@gmail.com
+      name: osnat ashush
+      url: https://osnatashush.github.io
+    name: ride-viewer-app
+    sources:
+    - https://github.com/osnatashush/helm-charts
+    type: application
+    urls:
+    - https://github.com/osnatashush/helm-charts/releases/download/ride-viewer-app-0.0.3/ride-viewer-app-0.0.3.tgz
+    version: 0.0.3
   - apiVersion: v2
     created: "2025-09-10T13:01:44.938217475Z"
     description: A Helm chart for ride-viewer application
@@ -375,4 +509,4 @@ entries:
     urls:
     - https://github.com/osnatashush/helm-charts/releases/download/threat-patrol-app-0.0.1/threat-patrol-app-0.0.1.tgz
     version: 0.0.1
-generated: "2025-09-10T14:33:18.93940539Z"
+generated: "2025-09-11T09:05:33.080395923Z"
