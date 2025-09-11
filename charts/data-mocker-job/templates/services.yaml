@@ -1,0 +1,29 @@
+{{- range $i, $svc := .Values.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{- if $svc.name }}{{ $svc.name }}{{- else }}{{ include "data-mocker-job.fullname" $ }}-svc-{{ $i }}{{- end }}"
+  labels:
+    {{- include "data-mocker-job.labels" $ | nindent 4 }}
+  {{- with $svc.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ $svc.type | default "ClusterIP" }}
+  ports:
+    {{- range $svc.ports }}
+    - port: {{ .port }}
+      targetPort: {{ .targetPort }}
+      protocol: {{ .protocol | default "TCP" }}
+      {{- if .name }}
+      name: {{ .name }}
+      {{- end }}
+    {{- end }}
+  selector:
+    {{- include "data-mocker-job.selectorLabels" $ | nindent 4 }}
+    {{- with $.Values.podLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+{{- end }}

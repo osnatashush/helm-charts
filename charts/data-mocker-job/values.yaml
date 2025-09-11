@@ -1,0 +1,75 @@
+# Default values for data-mocker-job.
+# This chart renders a Kubernetes Job and optional Services.
+# It is generic and driven entirely by values.
+
+# Name overrides
+nameOverride: ""
+fullnameOverride: ""
+
+# Global app identifier (optional)
+appName: ""
+
+imagePullSecrets: []
+
+serviceAccount:
+  create: false
+  name: ""
+  annotations: {}
+
+# Pod-level settings
+podAnnotations: {}
+podLabels: {}
+podSecurityContext: {}
+securityContext: {}
+
+# Scheduling
+nodeSelector: {}
+affinity: {}
+tolerations: []
+
+# Job settings
+job:
+  enabled: true
+  backoffLimit: 4
+  restartPolicy: Never
+  # optional TTL after finished (seconds)
+  ttlSecondsAfterFinished: null
+  # Optional parallelism/completions
+  parallelism: null
+  completions: null
+
+  # List of containers for the Job pod
+  containers: []
+  # - name: my-container
+  #   image:
+  #     repository: nginx
+  #     tag: latest
+  #     pullPolicy: IfNotPresent
+  #   command: []        # e.g. ["/bin/bash", "-c"]
+  #   args: []           # e.g. ["echo hello && sleep 3600"]
+  #   env: []            # list of name/value or valueFrom
+  #   ports: []          # - containerPort: 80; name: http; protocol: TCP
+  #   volumeMounts: []   # - name: data; mountPath: /data
+  #   resources: {}
+  #   securityContext: {}
+
+  # Init containers (optional)
+  initContainers: []
+
+# Volumes for the pod
+volumes: []
+# - name: data
+#   persistentVolumeClaim: { claimName: my-pvc }
+# - name: scratch
+#   emptyDir: {}
+
+# Services (list). Each service selects the Job pod using selector labels.
+services: []
+# - name: my-service
+#   type: ClusterIP
+#   annotations: {}
+#   ports:
+#     - port: 80
+#       targetPort: http
+#       protocol: TCP
+#       name: http

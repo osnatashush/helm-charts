@@ -1,0 +1,8 @@
+apiVersion: v2
+name: data-mocker-job
+description: Generic Helm chart for a Kubernetes Job with multiple containers and services.
+
+type: application
+
+version: 0.0.1
+appVersion: "1.0.0"

@@ -1,0 +1,96 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "data-mocker-job.fullname" . }}
+  labels:
+    {{- include "data-mocker-job.labels" . | nindent 4 }}
+spec:
+  backoffLimit: {{ .Values.job.backoffLimit | default 4 }}
+  {{- if .Values.job.parallelism }}
+  parallelism: {{ .Values.job.parallelism }}
+  {{- end }}
+  {{- if .Values.job.completions }}
+  completions: {{ .Values.job.completions }}
+  {{- end }}
+  {{- if .Values.job.ttlSecondsAfterFinished }}
+  ttlSecondsAfterFinished: {{ .Values.job.ttlSecondsAfterFinished }}
+  {{- end }}
+  template:
+    metadata:
+      labels:
+        {{- include "data-mocker-job.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      {{- if .Values.serviceAccount.create }}
+      serviceAccountName: {{ include "data-mocker-job.serviceAccountName" . }}
+      {{- end }}
+      restartPolicy: {{ .Values.job.restartPolicy | default "Never" }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.job.initContainers }}
+      initContainers:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        {{- range $idx, $c := .Values.job.containers }}
+        - name: {{ $c.name | quote }}
+          image: "{{ $c.image.repository }}:{{ $c.image.tag }}"
+          {{- if $c.image.pullPolicy }}
+          imagePullPolicy: {{ $c.image.pullPolicy }}
+          {{- end }}
+          {{- with $c.command }}
+          command: {{ toYaml . | nindent 10 }}
+          {{- end }}
+          {{- with $c.args }}
+          args:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with $c.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with $c.ports }}
+          ports:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with $c.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with $c.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with $c.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+        {{- end }}
+      {{- with .Values.volumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
